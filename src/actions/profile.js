@@ -13,7 +13,7 @@ import {
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await axios.get(
-      'https://devconnector-7z7s.onrender.com/api/profile/me'
+      'https://devconnector-frontend.onrender.com/api/profile/me'
     );
     dispatch({
       type: GET_PROFILE,
@@ -34,7 +34,7 @@ export const getProfiles = () => async (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
   try {
     const res = await axios.get(
-      'https://devconnector-7z7s.onrender.com/api/profile'
+      'https://devconnector-frontend.onrender.com/api/profile'
     );
     dispatch({
       type: GET_PROFILES,
@@ -54,7 +54,7 @@ export const getProfiles = () => async (dispatch) => {
 export const getProfileById = (userId) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://devconnector-7z7s.onrender.com/api/profile/user/${userId}`
+      `https://devconnector-frontend.onrender.com/api/profile/user/${userId}`
     );
     dispatch({
       type: GET_PROFILE,
@@ -74,7 +74,7 @@ export const getProfileById = (userId) => async (dispatch) => {
 export const getGithubRepos = (username) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://devconnector-7z7s.onrender.com/api/profile/github/${username}`
+      `https://devconnector-frontend.onrender.com/api/profile/github/${username}`
     );
     dispatch({
       type: GET_REPOS,
@@ -102,7 +102,7 @@ export const createProfile =
       };
 
       const res = await axios.post(
-        'https://devconnector-7z7s.onrender.com/api/profile',
+        'https://devconnector-frontend.onrender.com/api/profile',
         formData,
         config
       );
@@ -142,7 +142,7 @@ export const addExperience = (formData, navigate) => async (dispatch) => {
     };
 
     const res = await axios.put(
-      'https://devconnector-7z7s.onrender.com/api/profile/experience',
+      'https://devconnector-frontend.onrender.com/api/profile/experience',
       formData,
       config
     );
@@ -178,7 +178,7 @@ export const addEducation = (formData, navigate) => async (dispatch) => {
     };
 
     const res = await axios.put(
-      'https://devconnector-7z7s.onrender.com/api/profile/education',
+      'https://devconnector-frontend.onrender.com/api/profile/education',
       formData,
       config
     );
@@ -208,7 +208,7 @@ export const addEducation = (formData, navigate) => async (dispatch) => {
 export const deleteExperience = (id) => async (dispatch) => {
   try {
     const res = await axios.delete(
-      `https://devconnector-7z7s.onrender.com/api/profile/experience/${id}`
+      `https://devconnector-frontend.onrender.com/api/profile/experience/${id}`
     );
     dispatch({
       type: UPDATE_PROFILE,
@@ -229,7 +229,7 @@ export const deleteExperience = (id) => async (dispatch) => {
 export const deleteEducation = (id) => async (dispatch) => {
   try {
     const res = await axios.delete(
-      `https://devconnector-7z7s.onrender.com/api/profile/education/${id}`
+      `https://devconnector-frontend.onrender.com/api/profile/education/${id}`
     );
     dispatch({
       type: UPDATE_PROFILE,
@@ -250,7 +250,9 @@ export const deleteEducation = (id) => async (dispatch) => {
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm('Are you sure?This cannot be undone')) {
     try {
-      await axios.delete('https://devconnector-7z7s.onrender.com/api/profile');
+      await axios.delete(
+        'https://devconnector-frontend.onrender.com/api/profile'
+      );
       dispatch({ type: CLEAR_PROFILE });
       dispatch({
         type: ACCOUNT_DELETED,

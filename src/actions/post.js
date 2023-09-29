@@ -14,7 +14,7 @@ import { setAlert } from './alert';
 export const getPosts = () => async (dispatch) => {
   try {
     const res = await axios.get(
-      'https://devconnector-7z7s.onrender.com/api/posts'
+      'https://devconnector-frontend.onrender.com/api/posts'
     );
     dispatch({
       type: GET_POSTS,
@@ -33,7 +33,7 @@ export const getPosts = () => async (dispatch) => {
 export const getPost = (id) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://devconnector-7z7s.onrender.com/api/posts/${id}`
+      `https://devconnector-frontend.onrender.com/api/posts/${id}`
     );
     dispatch({
       type: GET_POST,
@@ -53,7 +53,7 @@ export const getPost = (id) => async (dispatch) => {
 export const addLike = (id) => async (dispatch) => {
   try {
     const res = await axios.put(
-      `https://devconnector-7z7s.onrender.com/api/posts/like/${id}`
+      `https://devconnector-frontend.onrender.com/api/posts/like/${id}`
     );
     dispatch({
       type: UPDATE_LIKES,
@@ -73,7 +73,7 @@ export const addLike = (id) => async (dispatch) => {
 export const removeLike = (id) => async (dispatch) => {
   try {
     const res = await axios.put(
-      `https://devconnector-7z7s.onrender.com/api/posts/unlike/${id}`
+      `https://devconnector-frontend.onrender.com/api/posts/unlike/${id}`
     );
     dispatch({
       type: UPDATE_LIKES,
@@ -93,7 +93,7 @@ export const removeLike = (id) => async (dispatch) => {
 export const deletePost = (id) => async (dispatch) => {
   try {
     await axios.delete(
-      `https://devconnector-7z7s.onrender.com/api/posts/${id}`
+      `https://devconnector-frontend.onrender.com/api/posts/${id}`
     );
     dispatch({
       type: DELETE_POST,
@@ -119,7 +119,7 @@ export const addPost = (formData) => async (dispatch) => {
   };
   try {
     const res = await axios.post(
-      'https://devconnector-7z7s.onrender.com/api/posts/',
+      'https://devconnector-frontend.onrender.com/api/posts/',
       formData,
       config
     );
@@ -147,7 +147,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
   };
   try {
     const res = await axios.post(
-      `https://devconnector-7z7s.onrender.com/api/posts/comment/${postId}`,
+      `https://devconnector-frontend.onrender.com/api/posts/comment/${postId}`,
       formData,
       config
     );
@@ -170,7 +170,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
 export const deleteComment = (postId, commentId) => async (dispatch) => {
   try {
     await axios.delete(
-      `https://devconnector-7z7s.onrender.com/api/posts/comment/${postId}/${commentId}`
+      `https://devconnector-frontend.onrender.com/api/posts/comment/${postId}/${commentId}`
     );
     dispatch({
       type: REMOVE_COMMENT,

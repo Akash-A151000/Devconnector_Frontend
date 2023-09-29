@@ -18,7 +18,7 @@ export const loadUser = () => async (dispatch) => {
   }
   try {
     const res = await axios.get(
-      'https://devconnector-7z7s.onrender.com/api/auth'
+      'https://devconnector-frontend.onrender.com/api/auth'
     );
     console.log(res.data);
     dispatch({
@@ -44,7 +44,7 @@ export const register =
     const body = JSON.stringify({ name, email, password });
     try {
       const res = await axios.post(
-        'https://devconnector-7z7s.onrender.com/api/users',
+        'https://devconnector-frontend.onrender.com/api/users',
         body,
         config
       );
@@ -74,7 +74,7 @@ export const login = (email, password) => async (dispatch) => {
   const body = JSON.stringify({ email, password });
   try {
     const res = await axios.post(
-      'https://devconnector-7z7s.onrender.com/api/auth',
+      'https://devconnector-frontend.onrender.com/api/auth',
       body,
       config
     );
